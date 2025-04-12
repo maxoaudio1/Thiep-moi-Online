@@ -830,9 +830,9 @@
                 image.src = "MAXO.png";
                 const uploadedImageData = ${uploadedImage ? `"${uploadedImage.src}"` : null};
 
-                // Resize và crop giữa với tỉ lệ chính xác 4:5
+                // Resize và crop giữa với tỉ lệ chính xác 4:4
                 function cropToAspectThenResize(img, targetWidth, targetHeight, callback) {
-                const targetAspect = 4 / 5; //  Tỉ lẹ 4:5 
+                const targetAspect = 4 / 4; //  Tỉ lẹ 4:4 
                 const imgAspect = img.width / img.height;
 
                 let sx = 0, sy = 0, sw = img.width, sh = img.height;
