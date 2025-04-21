@@ -567,26 +567,11 @@
             <!--  -->
             <select id="donvi-select" placeholder="Chọn Đơn Vị...">
                 <option value="" disabled selected hidden>Chọn đơn vị</option>
-                <option value="MA">MA</option>
+                
                 <option value="MAXO">MAXO</option>
-                <option value="TL SOUND">TL SOUND</option>
-                <option value="SVT">SVT</option>
-                <option value="MLA">MLA</option>
-                <option value="TVW">TVW</option>
-                <option value="DBACOUSTIC">DBACOUSTIC</option>
-                <option value="YEN PHUONG">YẾN PHƯƠNG</option>
-                <option value="D&B">D&B</option>
-                <option value="KORAH">KORAH</option>
-                <option value="ADMAX">ADMAX</option>
-                <option value="G.SOUND">G.SOUND</option>
-                <option value="PT AUDIO">PT AUDIO</option>
-                <option value="FILL">FILL</option>
-                <option value="PASSION">PASSION</option>
-                <option value="TC.AUDIO">TC.AUDIO</option>
-                <option value="WONDERFELL">WONDERFELL</option>
-                <option value="EVENT">EVENT</option>
-                <option value="KARAOKE VVIP">KARAOKE VVIP</option>
-                <option value="BOSA">BOSA</option>
+                
+                <option value="VVIP">"KARAOKE VVIP</option>
+                
             </select>
             <!-- -->
             <div id="upload-section" class="fade-up" style="display: none; animation-delay: 0.9s;">
@@ -927,18 +912,15 @@
             // <!---->
             let imageSrc = "";
             switch (donvi) {
-        
-                    break;
+                
                 case "MAXO":
                     imageSrc = "MAXO.png";
                     break;
-        
-                    
-                case "KARAOKE VVIP":
+
+                case "VVIP":
                     imageSrc = "VVIP.jpg";
                     break;
-
-              
+                
                 default:
                     imageSrc = "MA.jpg"; // Sai case hoặc switch sẽ mặc định ảnh này.
             }
@@ -970,9 +952,6 @@
               </style>
             </head>
             <body>
-    
-            <script>
-            <canvas id="invitationCanvas" width="${donvi === "VVIP" ? 1200 : 1500}" height="${donvi === "MAXO" ? 1743 : 2271}"></canva
             <canvas id="invitationCanvas" width="${donvi === "MAXO" ? 1686 : 1500}" height="${donvi === "MAXO" ? 1743 : 2271}"></canvas>
             <script>
               const name = ${JSON.stringify(name)};
@@ -1048,102 +1027,3 @@
 </body>
 
 </html>
-
- // // 
-        
-            <!DOCTYPE html>
-            <html>
-            <head>
-              <meta charset="UTF-8">
-              <title>Thiệp Mời</title>
-              <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
-              <style>
-                body {
-                  margin: 0;
-                  background-color: black;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  height: 100vh;
-                  overflow: hidden;
-                }
-                canvas {
-                  max-width: 100%;
-                  max-height: 100%;
-                }
-              </style>
-            </head>
-            <body>
-    
-            <script>
-            <canvas id="invitationCanvas" width="${donvi === "VVIP" ? 1200 : 1500}" height="${donvi === "VVIP" ? 1743 : 2271}"></canva
-    
-            <script>
-              const name = ${JSON.stringify(name)};
-              const canvas = document.getElementById("invitationCanvas");
-              const ctx = canvas.getContext("2d");
-            
-              const image = new Image();
-              image.src = "${imageSrc}";
-              const uploadedImageData = ${uploadedImage ? `"${uploadedImage.src}"` : null};
-            
-              image.onload = function () {
-                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-            
-                ctx.font = "bold ${fontSize} 'League Spartan', sans-serif";
-                ctx.fillStyle = "#fffaf3";
-                ctx.textAlign = "center";
-                ctx.shadowColor = "rgba(0, 0, 0, 0.25)";
-                ctx.shadowBlur = 2.5;
-                ctx.lineWidth = 1.8;
-                ctx.strokeStyle = "rgba(0, 0, 0, 0.25)";
-                ctx.textBaseline = "middle";
-            
-                const textY = ${donvi === "VVIP" ? 900 : yPosition}; // vị trí chữ cho VVIP
-                ctx.strokeText(name, canvas.width / 2, textY);
-                ctx.fillText(name, canvas.width / 2, textY);
-            
-            
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.clip();
-            
-                    ctx.drawImage(avatar, centerX - radius, centerY - radius, radius * 2, radius * 2);
-                    ctx.restore();
-            
-                    const link = document.createElement("a");
-                    link.download = "export.jpg";
-                    link.href = canvas.toDataURL("image/jpeg", 0.95);
-                    link.click();
-                  };
-                  avatar.src = uploadedImageData;
-                } else {
-                  const link = document.createElement("a");
-                  link.download = "export.jpg";
-                  link.href = canvas.toDataURL("image/jpeg", 0.95); 
-                  link.click();
-                }
-              };
-            <\/script>
-            </body>
-            </html>
-            `;
-
-            const newTab = window.open();
-            newTab.document.open();
-            newTab.document.write(htmlContent);
-            newTab.document.close();
-        });
-
-        window.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll('.fade-up').forEach(el => {
-                el.style.animationPlayState = 'running';
-            });
-        });
-    </script>
-</body>
-
-</html>
-
