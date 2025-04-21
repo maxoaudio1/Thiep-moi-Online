@@ -152,7 +152,7 @@
         }
 
         body {
-            background: url('image/istockphoto-2170390329-1024x1024.png') no-repeat center center fixed;
+            background: url('istockphoto-2170390329-1024x1024.png') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -556,7 +556,7 @@
         </div>
     </nav>
     <div class="header fade-up" style="animation-delay: 0.2s;">
-        <img src="image/MAXO_02.png" width="250" height="250" alt="Logo" />
+        <img src="MAXO_02.png" width="250" height="250" alt="Logo" />
     </div>
     <div class="title fade-up">
         <h1 class="title1 face-up">TẠO THIỆP MỜI ONLINE</h1>
@@ -567,9 +567,8 @@
             <!--  -->
             <select id="donvi-select" placeholder="Chọn Đơn Vị...">
                 <option value="" disabled selected hidden>Chọn đơn vị</option>
-                <option value="VVIP">VVIP</option>
-                
-                
+                <option value="VVIP">KARAOKE VVIP</option>
+               
             </select>
             <!-- -->
             <div id="upload-section" class="fade-up" style="display: none; animation-delay: 0.9s;">
@@ -811,12 +810,12 @@
                 const ctx = canvas.getContext("2d");
 
                 const image = new Image();
-                image.src = "image/MAXO.png";
+                image.src = "MAXO.png";
                 const uploadedImageData = ${uploadedImage ? `"${uploadedImage.src}"` : null};
 
                 // Resize và crop giữa với tỉ lệ chính xác 4:4
                 function cropToAspectThenResize(img, targetWidth, targetHeight, callback) {
-                const targetAspect = 4 / 4; //  Tỉ lẹ 4:4
+                const targetAspect = 4 / 4; //  Tỉ lẹ 4:4 
                 const imgAspect = img.width / img.height;
 
                 let sx = 0, sy = 0, sw = img.width, sh = img.height;
@@ -859,7 +858,7 @@
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
     // Vẽ họ tên
-    ctx.font = "bold 40px 'League Spartan', sans-serif";
+    ctx.font = "bold 49px 'League Spartan', sans-serif";
     ctx.fillStyle = "#fffaf3";
     ctx.textAlign = "center";
     ctx.shadowColor = "rgba(0, 0, 0, 0.25)";
@@ -911,13 +910,11 @@
             let imageSrc = "";
             switch (donvi) {
                 
-                
                 case "VVIP":
-                    imageSrc = "image/VVIP.jpg";
+                    imageSrc = "VVIP.jpg";
                     break;
-                
                 default:
-                    imageSrc = "image/MA.jpg"; // Sai case hoặc switch sẽ mặc định ảnh này.
+                    imageSrc = "MA.jpg"; // Sai case hoặc switch sẽ mặc định ảnh này.
             }
             // // 
             let yPosition = 766;
@@ -947,10 +944,7 @@
               </style>
             </head>
             <body>
-           
             <canvas id="invitationCanvas" width="1200" height="1500"></canvas>
-
-            
             <script>
               const name = ${JSON.stringify(name)};
               const canvas = document.getElementById("invitationCanvas");
